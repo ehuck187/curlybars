@@ -1,4 +1,5 @@
 require:
+  - rubocop-performance
   - rubocop-rspec
 
 AllCops:
@@ -45,6 +46,10 @@ Style/ClassAndModuleChildren:
 # Configured cops
 #
 
+# Align the arguments of a method call if they span more than one line.
+Layout/AlignArguments:
+  EnforcedStyle: with_fixed_indentation
+
 # Align the elements of a hash literal if they span more than one line.
 Layout/AlignHash:
   EnforcedLastArgumentHashStyle: ignore_implicit
@@ -62,11 +67,11 @@ Layout/EndAlignment:
   EnforcedStyleAlignWith: variable
 
 # Checks the indentation of the first parameter in a method call.
-Layout/FirstParameterIndentation:
+Layout/IndentFirstArgument:
   EnforcedStyle: consistent
 
 # Checks the indentation of the first key in a hash literal.
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   EnforcedStyle: consistent
 
 # Checks indentation of binary operations that span more than one line.
@@ -94,6 +99,10 @@ Style/FormatStringToken:
 #
 
 Layout/DotPosition:
+  Enabled: false
+
+# Awaiting bugfix: https://github.com/rubocop-hq/rubocop/issues/6254
+Layout/RescueEnsureAlignment:
   Enabled: false
 
 Lint/UnusedBlockArgument:
@@ -130,6 +139,9 @@ Metrics/PerceivedComplexity:
   Enabled: false
 
 Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
   Enabled: false
 
 RSpec/DescribeClass:

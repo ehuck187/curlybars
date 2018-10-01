@@ -35,6 +35,7 @@ module Curlybars
         # Included modules
         included_modules.each do |mod|
           next unless mod.respond_to?(:methods_schema)
+
           schema.merge!(mod.methods_schema(*args))
         end
 
